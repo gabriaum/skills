@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.3.0'
+}
+
+group = 'com.gabriaum.skills'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def location = 'C://API/'
+
+dependencies {
+
+    compileOnly('org.projectlombok:lombok:1.18.28')
+    compileOnly files(location + 'yunity.jar') // SPIGOT 1.8.8
+
+    annotationProcessor('org.projectlombok:lombok:1.18.28')
+}
+
+bukkit {
+    name = 'Skills'
+    main = 'com.gabriaum.skills.SkillsMain'
+    version = '1.0.0'
+    website = 'www.gabriaum.com'
+}
