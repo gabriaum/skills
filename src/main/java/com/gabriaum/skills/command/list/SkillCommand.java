@@ -4,12 +4,10 @@ import com.gabriaum.skills.SkillsMain;
 import com.gabriaum.skills.command.framework.Command;
 import com.gabriaum.skills.command.framework.CommandArgs;
 import com.gabriaum.skills.command.framework.Completer;
-import com.gabriaum.skills.inventory.ModuleInventory;
+import com.gabriaum.skills.inventory.SkillInventory;
 import com.gabriaum.skills.user.User;
 import com.gabriaum.skills.user.assets.Module;
 import com.gabriaum.skills.user.assets.type.ModuleType;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
@@ -29,7 +27,7 @@ public class SkillCommand {
         User user = User.getUser(player.getUniqueId());
 
         if (args.length < 1) {
-            new ModuleInventory(player);
+            new SkillInventory(player);
             return;
         }
 

@@ -6,7 +6,7 @@ import com.gabriaum.skills.user.assets.controller.ModuleController;
 import com.gabriaum.skills.user.assets.listener.ModuleListener;
 import com.gabriaum.skills.user.controller.UserController;
 import com.gabriaum.skills.user.listener.UserListener;
-import com.gabriaum.skills.util.inventory.controller.InventoryController;
+import com.gabriaum.skills.util.inventory.InventoryProctor;
 import lombok.Getter;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,8 +18,9 @@ public class SkillsMain extends JavaPlugin {
     private static SkillsMain instance;
 
     protected UserController userController;
-    protected InventoryController inventoryController;
     protected ModuleController moduleController;
+
+    protected InventoryProctor inventoryProctor;
 
     protected CommandFramework commandFramework;
 
@@ -33,10 +34,11 @@ public class SkillsMain extends JavaPlugin {
     public void onEnable() {
 
         userController = new UserController();
-        inventoryController = new InventoryController(this, 10);
 
         moduleController = new ModuleController();
         moduleController.load();
+
+        inventoryProctor = new InventoryProctor(this);
 
         commandFramework = new CommandFramework(this);
 
